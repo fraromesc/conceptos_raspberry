@@ -1,0 +1,3 @@
+para hacer foto 'raspistill -o nombre_archivo.jpg'
+
+para video 'raspivid -o nombrearchivo.h264'. Si se añade -t, es el temporizador en milisegundos para la duración del video. 
