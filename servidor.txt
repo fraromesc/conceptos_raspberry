@@ -1,0 +1,2 @@
+Para poner la camara online existe un app de terminal llamada 'motion'
+que podría ser interesante para nosotros. Mirala.
