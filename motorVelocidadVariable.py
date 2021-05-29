@@ -16,7 +16,7 @@ p = GPIO.PWM(MotorE1, 50)  # Creamos la instancia PWM con el GPIO a utilizar y l
 p.start(0)  #Inicializamos el objeto PWM
 
 print("Hacemos girar el motor en un sentido por 10 segundos mientras aumentamos  y disminuimos la velocidad")
-GPIO.output(MotorIN1,GPIO.HIGH) # Establecemos el sentido de giro con los pines IN1 e IN2  
+GPIO.output(MotorIN1,GPIO.HIGH) # Establecemos el sentido de giro con los pines IN1 e IN2
 GPIO.output(MotorIN2,GPIO.LOW)  # Establecemos el sentido de giro con los pines IN1 e IN2
 
 for dc in range(0, 101, 1):
@@ -28,7 +28,7 @@ for dc in range(100, -1, -1):
     time.sleep(0.05)
 
 print("Hacemos girar el motor en el sentido contrario por 10 segundos mientras aumentamos  y disminuimos la velocidad")
-GPIO.output(MotorIN1,GPIO.LOW) # Establecemos el sentido de giro con los pines IN1 e IN2  
+GPIO.output(MotorIN1,GPIO.LOW) # Establecemos el sentido de giro con los pines IN1 e IN2
 GPIO.output(MotorIN2,GPIO.HIGH)  # Establecemos el sentido de giro con los pines IN1 e IN2
 
 for dc in range(0, 101, 1):
