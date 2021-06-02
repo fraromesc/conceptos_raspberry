@@ -1,7 +1,40 @@
 import keyboard ##hay que instalarla
 import RPi.GPIO as GPIO
 import time
+import socket
+import sys
 from bluepy.btle import Scanner
+
+try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+except socket.error as e:
+        print ('Fallo al crear socket')
+        sys.exit()
+print ('Socket Creado')
+
+IP = '192.168.2.252'
+puerto = 15000
+
+try:
+    s.bind((IP,puerto))
+except socket.error as e:
+        print ('Fallo al configurar socket')
+        s.close()
+        sys.exit()
+
+try:
+    s.listen(10)
+except socket.error as e:
+        print ('Fallo al conectar')
+        s.close()
+        sys.exit()
+print('Puerto escuchando...')
+
+sconn, direccion = s.accept()
+print ('Conectado con ' + str(direccion[0]) + 'desde el puerto ' + str(direccion[1]))
+
+Salida = True
+
 
 GPIO.setmode(GPIO.BCM)
 ####MODOS FUNCIONAMIENTO
@@ -113,6 +146,11 @@ def ang():
 
 
 while True:
+    #Esperamos recibir mensaje del cliente
+    respuesta = sconn.recv(1024)
+    #Decodificamos el mensaje
+    tecla=respuesta.decode()
+
     #CAMBIAMOS DE MODO
     tecla = keyboard.read_key()
     if tecla == manual or tecla == MANUAL:
