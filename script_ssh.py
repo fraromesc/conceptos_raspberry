@@ -83,7 +83,7 @@ def distancia():
         difTiempo = tiempoFin - tiempoInicio
         d = (difTiempo * 34300) / 2
         print("no se si es en cm o no- funcion distancia")
-        if  d <= 2
+        if  d <= 2:
             r[i]=1
     return r
 

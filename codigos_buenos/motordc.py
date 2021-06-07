@@ -4,11 +4,11 @@
 import RPi.GPIO as GPIO 
 from time import sleep
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 #Pins 18 22 24 GPIO 24 25 8
-Motor1E = 18 #  Enable pin 1 of the controller IC
-Motor1A = 14 #  Input 1 of the controller IC
-Motor1B = 15 #  Input 2 of the controller IC
+Motor1E = 7 #  Enable pin 1 of the controller IC
+Motor1A = 3 #  Input 1 of the controller IC
+Motor1B = 5 #  Input 2 of the controller IC
 
 
 GPIO.setup(Motor1A,GPIO.OUT)

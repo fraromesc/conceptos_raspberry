@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import RPi.GPIO as GPIO 
-from time import sleep
+import time as t
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 #Pins 18 22 24 GPIO 24 25 8
-Motor1E = 24 #  Enable pin 1 of the controller IC
-Motor1A = 25 #  Input 1 of the controller IC
-Motor1B = 8 #  Input 2 of the controller IC
+Motor1E = 7 #  Enable pin 1 of the controller IC
+Motor1A = 5 #  Input 1 of the controller IC
+Motor1B = 3 #  Input 2 of the controller IC
 
 
 GPIO.setup(Motor1A,GPIO.OUT)
@@ -28,20 +28,20 @@ if __name__ == '__main__' :
     GPIO.output(Motor1E,GPIO.HIGH)
     forward.ChangeDutyCycle(0)
     reverse.ChangeDutyCycle(80)
-    sleep(2)
-
-
+    t.sleep(10)
+    GPIO.cleanup()
+'''
     # this will run your motor in forward direction for 5 seconds with 50% speed.
     print "GO forward"
     GPIO.output(Motor1E,GPIO.HIGH)
-    forward.ChangeDutyCycle(50)
+    forward.ChangeDutyCycle(100)
     reverse.ChangeDutyCycle(0)
-    sleep(5)
+    t.sleep(5)
 
     #stop motor
     print "Now stop"
     GPIO.output(Motor1E,GPIO.LOW)
     forward.stop() # stop PWM from GPIO output it is necessary
     reverse.stop() 
-
-    GPIO.cleanup()
+    t.sleep(1)'''
+#    GPIO.cleanup()

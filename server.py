@@ -11,7 +11,7 @@ except socket.error as e:
 print ('Socket Creado')
 
 #Creamos las variables para comunicarnos
-IP = '192.168.2.252'
+IP = ''
 puerto = 15000
 
 #Configuramos el socket
